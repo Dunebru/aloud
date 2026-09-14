@@ -48,13 +48,9 @@ Aloud does what Speechify charges $139 a year for. It uses Kokoro, an open 82-mi
 
 ## Install
 
+Signed with a Developer ID and notarized by Apple, so it opens like any other Mac app.
+
 Download **Aloud.zip** from the [latest release](https://github.com/Dunebru/aloud/releases/latest), unzip, and move **Aloud.app** to Applications.
-
-The app is not notarized. First launch: **right-click → Open → Open**. If macOS still refuses:
-
-```bash
-xattr -dr com.apple.quarantine /Applications/Aloud.app
-```
 
 Requires macOS 14 Sonoma or newer on Apple silicon (M1 or later).
 
