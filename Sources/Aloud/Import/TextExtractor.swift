@@ -92,11 +92,12 @@ enum TextExtractor {
     private static func unzip(_ url: URL) throws -> URL {
         let dir = FileManager.default.temporaryDirectory.appendingPathComponent("aloud-" + UUID().uuidString)
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-        let p = Process()
-        p.executableURL = URL(fileURLWithPath: "/usr/bin/unzip")
-        p.arguments = ["-qq", "-o", url.path, "-d", dir.path]
-        p.standardOutput = nil; p.standardError = nil
-        try p.run(); p.waitUntilExit()
+        do {
+            try ZipArchive.extract(url, to: dir)
+        } catch {
+            try? FileManager.default.removeItem(at: dir)
+            throw error
+        }
         return dir
     }
 

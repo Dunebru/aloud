@@ -30,8 +30,6 @@
 	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2026 dunebru. MIT License.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Aloud does not record audio.</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<false/>
 </dict>

@@ -14,7 +14,8 @@ struct AloudApp: App {
                 .frame(minWidth: 900, minHeight: 600)
                 .task {
                     await engine.loadModelIfNeeded()
-                    // Launch arguments for scripting: --open <file or URL> [--play]
+                    #if DEBUG
+                    // Launch arguments for scripting: --open <file or URL> [--play] [--export <path>]
                     let args = CommandLine.arguments
                     if let i = args.firstIndex(of: "--open"), args.count > i + 1 {
                         let target = args[i + 1]
@@ -26,6 +27,7 @@ struct AloudApp: App {
                             engine.exportAudio(to: URL(fileURLWithPath: args[e + 1]), title: "export")
                         }
                     }
+                    #endif
                 }
         }
         .windowStyle(.hiddenTitleBar)
